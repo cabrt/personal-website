@@ -173,6 +173,9 @@ function App() {
             <motion.a href="https://www.linkedin.com/in/conor-abramson-tieu" target="_blank" rel="noopener noreferrer" className="hero-link secondary" whileHover={{ scale: 1.02, y: -2 }} whileTap={{ scale: 0.98 }}>
               LinkedIn
             </motion.a>
+            <motion.a href="https://github.com/cabrt" target="_blank" rel="noopener noreferrer" className="hero-link secondary" whileHover={{ scale: 1.02, y: -2 }} whileTap={{ scale: 0.98 }}>
+              GitHub
+            </motion.a>
           </motion.div>
 
           <motion.div className="scroll-indicator" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5 }}>
@@ -239,6 +242,10 @@ function App() {
                 <motion.a href="https://www.linkedin.com/in/conor-abramson-tieu" target="_blank" rel="noopener noreferrer" className="contact-item" variants={fadeUp} whileHover={{ y: -4 }}>
                   <span className="contact-label">LinkedIn</span>
                   <span className="contact-value">conor-abramson-tieu</span>
+                </motion.a>
+                <motion.a href="https://github.com/cabrt" target="_blank" rel="noopener noreferrer" className="contact-item" variants={fadeUp} whileHover={{ y: -4 }}>
+                  <span className="contact-label">GitHub</span>
+                  <span className="contact-value">cabrt</span>
                 </motion.a>
                 <motion.div className="contact-item" variants={fadeUp}>
                   <span className="contact-label">Location</span>
