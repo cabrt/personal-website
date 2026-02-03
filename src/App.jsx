@@ -176,13 +176,12 @@ function App() {
             <motion.a href="https://github.com/cabrt" target="_blank" rel="noopener noreferrer" className="hero-link secondary" whileHover={{ scale: 1.02, y: -2 }} whileTap={{ scale: 0.98 }}>
               GitHub
             </motion.a>
+            <motion.div className="scroll-indicator-inline" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5 }}>
+              <motion.div className="scroll-line" animate={{ height: [30, 45, 30] }} transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }} />
+              <span>Scroll</span>
+            </motion.div>
           </motion.div>
-
-          </div>
-        <motion.div className="scroll-indicator" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5 }}>
-          <motion.div className="scroll-line" animate={{ height: [40, 60, 40] }} transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }} />
-          <span>Scroll</span>
-        </motion.div>
+        </div>
       </motion.section>
 
       <section className="content">
