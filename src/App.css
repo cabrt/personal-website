@@ -316,6 +316,15 @@ a.contact-item:hover .contact-value {
   color: var(--primary-light);
 }
 
+.contact-item.availability {
+  border-color: var(--primary);
+  background: rgba(59, 130, 246, 0.08);
+}
+
+.contact-item.availability .contact-value {
+  color: var(--primary-light);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .hero {

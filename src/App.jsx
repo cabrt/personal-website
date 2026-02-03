@@ -250,6 +250,10 @@ function App() {
                   <span className="contact-label">Location</span>
                   <span className="contact-value">Boston, MA</span>
                 </motion.div>
+                <motion.div className="contact-item availability" variants={fadeUp}>
+                  <span className="contact-label">Availability</span>
+                  <span className="contact-value">May 2026</span>
+                </motion.div>
               </motion.div>
             </div>
           </footer>
