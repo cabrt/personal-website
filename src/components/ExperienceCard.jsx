@@ -3,15 +3,11 @@ import { motion, AnimatePresence } from 'framer-motion'
 import './ExperienceCard.css'
 
 export default function ExperienceCard({ title, subtitle, tags, bullets, link }) {
-  const [isExpanded, setIsExpanded] = useState(true)
+  const [open, setOpen] = useState(true)
 
   return (
-    <motion.div 
-      className="experience-card"
-      whileHover={{ y: -4 }}
-      transition={{ duration: 0.2 }}
-    >
-      <div className="card-header" onClick={() => setIsExpanded(!isExpanded)}>
+    <motion.div className="experience-card" whileHover={{ y: -4 }} transition={{ duration: 0.2 }}>
+      <div className="card-header" onClick={() => setOpen(!open)}>
         <div className="card-title-group">
           <div className="card-title-row">
             <h2 className="card-title">{title}</h2>
@@ -21,7 +17,7 @@ export default function ExperienceCard({ title, subtitle, tags, bullets, link })
                 target="_blank"
                 rel="noopener noreferrer"
                 className="card-link"
-                onClick={(e) => e.stopPropagation()}
+                onClick={e => e.stopPropagation()}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -32,17 +28,13 @@ export default function ExperienceCard({ title, subtitle, tags, bullets, link })
           </div>
           <p className="card-subtitle">{subtitle}</p>
         </div>
-        <motion.div 
-          className="expand-indicator"
-          animate={{ rotate: isExpanded ? 0 : -90 }}
-          transition={{ duration: 0.2 }}
-        >
+        <motion.div className="expand-indicator" animate={{ rotate: open ? 0 : -90 }} transition={{ duration: 0.2 }}>
           −
         </motion.div>
       </div>
       
       <AnimatePresence initial={false}>
-        {isExpanded && (
+        {open && (
           <motion.div 
             className="card-content"
             initial={{ height: 0, opacity: 0 }}
@@ -52,13 +44,13 @@ export default function ExperienceCard({ title, subtitle, tags, bullets, link })
           >
             <div className="card-content-inner">
               <div className="card-tags">
-                {tags.map((tag, index) => (
+                {tags.map((tag, i) => (
                   <motion.span 
-                    key={index} 
+                    key={i} 
                     className="tag"
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: index * 0.05 }}
+                    transition={{ delay: i * 0.05 }}
                   >
                     {tag}
                   </motion.span>
@@ -66,15 +58,15 @@ export default function ExperienceCard({ title, subtitle, tags, bullets, link })
               </div>
               
               <ul className="card-bullets">
-                {bullets.map((bullet, index) => (
+                {bullets.map((text, i) => (
                   <motion.li 
-                    key={index}
+                    key={i}
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.1 + index * 0.05 }}
+                    transition={{ delay: 0.1 + i * 0.05 }}
                   >
-                    <span className="bullet-dash"></span>
-                    {bullet}
+                    <span className="bullet-dash" />
+                    {text}
                   </motion.li>
                 ))}
               </ul>

@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import './SkillsSection.css'
 
-const skillsData = {
+const skills = {
   languages: {
     title: 'Languages',
     items: ['Java', 'Python', 'JavaScript', 'TypeScript', 'C#', 'PHP', 'SQL', 'HTML/CSS', 'R', 'Assembly']
@@ -16,55 +16,32 @@ const skillsData = {
   }
 }
 
-const containerVariants = {
+const container = {
   hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.03 }
-  }
+  visible: { opacity: 1, transition: { staggerChildren: 0.03 } }
 }
 
-const tagVariants = {
+const item = {
   hidden: { opacity: 0, scale: 0.8, y: 20 },
-  visible: { 
-    opacity: 1, 
-    scale: 1, 
-    y: 0,
-    transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] }
-  }
+  visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] } }
 }
 
 export default function SkillsSection() {
   return (
     <div className="skills-section">
-      {Object.entries(skillsData).map(([key, category], categoryIndex) => (
+      {Object.entries(skills).map(([key, category], idx) => (
         <motion.div 
           key={key} 
           className="skills-category"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
+          transition={{ duration: 0.5, delay: idx * 0.1 }}
         >
           <h3 className="skills-category-title">{category.title}</h3>
-          <motion.div 
-            className="skills-list"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={containerVariants}
-          >
-            {category.items.map((skill, index) => (
-              <motion.span 
-                key={index} 
-                className="skill-tag"
-                variants={tagVariants}
-                whileHover={{ 
-                  y: -4, 
-                  scale: 1.05,
-                  transition: { duration: 0.2 }
-                }}
-              >
+          <motion.div className="skills-list" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={container}>
+            {category.items.map((skill, i) => (
+              <motion.span key={i} className="skill-tag" variants={item} whileHover={{ y: -4, scale: 1.05, transition: { duration: 0.2 } }}>
                 {skill}
               </motion.span>
             ))}
