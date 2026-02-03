@@ -1,0 +1,51 @@
+.skills-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.skills-category {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 1.75rem;
+  transition: all 0.3s ease;
+}
+
+.skills-category:hover {
+  border-color: var(--border-light);
+}
+
+.skills-category-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.skill-tag {
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.6rem 1.1rem;
+  background: rgba(59, 130, 246, 0.06);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text);
+  transition: all 0.2s ease;
+  cursor: default;
+}
+
+.skill-tag:hover {
+  background: rgba(59, 130, 246, 0.12);
+  border-color: var(--primary);
+  color: var(--primary-light);
+}
