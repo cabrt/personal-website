@@ -175,7 +175,7 @@ function App() {
               GitHub
             </motion.a>
             <motion.div className="scroll-indicator-inline" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5 }}>
-              <motion.div className="scroll-line" animate={{ height: [30, 45, 30] }} transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }} />
+              <div className="scroll-line" style={{ height: 40 }} />
               <span>Scroll</span>
             </motion.div>
           </motion.div>
