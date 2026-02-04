@@ -6,7 +6,7 @@ export default function ExperienceCard({ title, subtitle, tags, bullets, link })
   const [open, setOpen] = useState(true)
 
   return (
-    <motion.div className="experience-card" whileHover={{ y: -4 }} transition={{ duration: 0.2 }}>
+    <div className="experience-card">
       <div className="card-header" onClick={() => setOpen(!open)}>
         <div className="card-title-group">
           <div className="card-title-row">
@@ -74,6 +74,6 @@ export default function ExperienceCard({ title, subtitle, tags, bullets, link })
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.div>
+    </div>
   )
 }

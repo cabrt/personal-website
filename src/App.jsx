@@ -57,8 +57,6 @@ function Section({ children, className, delay = 0 }) {
 function App() {
   const { scrollYProgress } = useScroll()
   const heroOpacity = useTransform(scrollYProgress, [0, 0.15], [1, 0])
-  const heroScale = useTransform(scrollYProgress, [0, 0.15], [1, 0.95])
-  const heroY = useTransform(scrollYProgress, [0, 0.15], [0, -50])
 
   const experience = [
     {
@@ -134,7 +132,7 @@ function App() {
     <div className="app">
       <motion.div className="progress-bar" style={{ scaleX: scrollYProgress }} />
 
-      <motion.section className="hero" style={{ opacity: heroOpacity, scale: heroScale, y: heroY }}>
+      <motion.section className="hero" style={{ opacity: heroOpacity }}>
         <div className="hero-content">
           <motion.div 
             className="hero-badge"
