@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { motion, useScroll, useTransform, useInView } from 'framer-motion'
+import { motion, useScroll, useInView } from 'framer-motion'
 import ExperienceCard from './components/ExperienceCard'
 import SkillsSection from './components/SkillsSection'
 import './App.css'
@@ -56,7 +56,6 @@ function Section({ children, className, delay = 0 }) {
 
 function App() {
   const { scrollYProgress } = useScroll()
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.15], [1, 0])
 
   const experience = [
     {
@@ -132,7 +131,7 @@ function App() {
     <div className="app">
       <motion.div className="progress-bar" style={{ scaleX: scrollYProgress }} />
 
-      <motion.section className="hero" style={{ opacity: heroOpacity }}>
+      <section className="hero">
         <div className="hero-content">
           <motion.div 
             className="hero-badge"
@@ -180,7 +179,7 @@ function App() {
             </motion.div>
           </motion.div>
         </div>
-      </motion.section>
+      </section>
 
       <section className="content">
         <Section className="section-header">

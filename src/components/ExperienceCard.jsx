@@ -1,12 +1,29 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import './ExperienceCard.css'
 
+function useCanHover() {
+  const [canHover, setCanHover] = useState(false)
+  useEffect(() => {
+    const m = window.matchMedia('(hover: hover)')
+    setCanHover(m.matches)
+    const listener = () => setCanHover(m.matches)
+    m.addEventListener('change', listener)
+    return () => m.removeEventListener('change', listener)
+  }, [])
+  return canHover
+}
+
 export default function ExperienceCard({ title, subtitle, tags, bullets, link }) {
   const [open, setOpen] = useState(true)
+  const canHover = useCanHover()
 
   return (
-    <div className="experience-card">
+    <motion.div
+      className="experience-card"
+      whileHover={canHover ? { y: -4, scale: 1.02 } : undefined}
+      transition={{ duration: 0.2 }}
+    >
       <div className="card-header" onClick={() => setOpen(!open)}>
         <div className="card-title-group">
           <div className="card-title-row">
@@ -74,6 +91,6 @@ export default function ExperienceCard({ title, subtitle, tags, bullets, link })
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </motion.div>
   )
 }
