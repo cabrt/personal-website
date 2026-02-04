@@ -157,9 +157,34 @@ body {
   margin-left: 1rem;
 }
 
+.scroll-indicator-inline .scroll-line-wrapper {
+  height: 40px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
 .scroll-indicator-inline .scroll-line {
-  width: 1px;
+  width: 2px;
+  height: 40px;
+  border-radius: 1px;
   background: linear-gradient(to bottom, var(--primary), transparent);
+  transform-origin: bottom;
+  animation: scroll-line-pulse 2s ease-in-out infinite;
+}
+
+.scroll-indicator-inline .scroll-label {
+  animation: scroll-label-pulse 2s ease-in-out infinite;
+}
+
+@keyframes scroll-line-pulse {
+  0%, 100% { opacity: 0.4; transform: scaleY(0.5); }
+  50% { opacity: 1; transform: scaleY(1); }
+}
+
+@keyframes scroll-label-pulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
 }
 
 .hero-link {
@@ -212,7 +237,7 @@ body {
   background: linear-gradient(to bottom, var(--primary), transparent);
 }
 
-/* Content Section */
+/* Content Section – smooth transition from hero (fade-in at top) */
 .content {
   position: relative;
   z-index: 20;
@@ -220,6 +245,23 @@ body {
   padding: 8rem 2rem;
   max-width: 900px;
   margin: 0 auto;
+}
+
+.content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 20vh;
+  background: linear-gradient(to bottom, transparent, var(--bg-dark));
+  pointer-events: none;
+  z-index: 0;
+}
+
+.content > * {
+  position: relative;
+  z-index: 1;
 }
 
 .section-header {
