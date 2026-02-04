@@ -35,11 +35,11 @@ export default function SkillsSection() {
           className="skills-category"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
+          viewport={{ once: false, margin: "-50px" }}
           transition={{ duration: 0.5, delay: idx * 0.1 }}
         >
           <h3 className="skills-category-title">{category.title}</h3>
-          <motion.div className="skills-list" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={container}>
+          <motion.div className="skills-list" initial="hidden" whileInView="visible" viewport={{ once: false }} variants={container}>
             {category.items.map((skill, i) => (
               <motion.span key={i} className="skill-tag" variants={item} whileHover={{ y: -4, scale: 1.05, transition: { duration: 0.2 } }}>
                 {skill}

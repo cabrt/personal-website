@@ -39,7 +39,7 @@ function AnimatedText({ text, className, delay = 0 }) {
 
 function Section({ children, className, delay = 0 }) {
   const ref = useRef(null)
-  const inView = useInView(ref, { once: true, margin: "-100px" })
+  const inView = useInView(ref, { once: false, margin: "-100px" })
   
   return (
     <motion.div
@@ -190,7 +190,7 @@ function App() {
           <h2 className="section-title">Experience</h2>
         </Section>
         
-        <motion.div className="cards-container" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={stagger}>
+        <motion.div className="cards-container" initial="hidden" whileInView="visible" viewport={{ once: false, margin: "-50px" }} variants={stagger}>
           {experience.map((item, i) => (
             <motion.div key={i} variants={fadeUp}>
               <ExperienceCard {...item} />
@@ -212,7 +212,7 @@ function App() {
           <h2 className="section-title">Projects</h2>
         </Section>
         
-        <motion.div className="cards-container" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={stagger}>
+        <motion.div className="cards-container" initial="hidden" whileInView="visible" viewport={{ once: false, margin: "-50px" }} variants={stagger}>
           {projects.map((item, i) => (
             <motion.div key={i} variants={fadeUp}>
               <ExperienceCard {...item} />
@@ -232,8 +232,8 @@ function App() {
         <Section delay={0.2}>
           <footer className="contact">
             <div className="contact-content">
-              <h3 className="contact-title">Let's connect</h3>
-              <motion.div className="contact-grid" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
+              <h3 className="contact-title">Let's Connect</h3>
+              <motion.div className="contact-grid" initial="hidden" whileInView="visible" viewport={{ once: false }} variants={stagger}>
                 <motion.a href="mailto:cabrt2@gmail.com" className="contact-item" variants={fadeUp} whileHover={{ y: -4 }}>
                   <span className="contact-label">Email</span>
                   <span className="contact-value">cabrt2@gmail.com</span>
